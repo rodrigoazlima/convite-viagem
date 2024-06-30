@@ -1,0 +1,207 @@
+button svg {
+  transform-origin: center; /* Ensure rotation around the center */
+  filter: drop-shadow(0 0 4px currentColor); /* Add shadow to make it appear bolder */
+  fill: currentColor; /* Fill the paths with the current text color */
+}
+:root {
+  --btn-color: #fff;
+  --btn1-background-color: #6dc354;
+  --animation-background-color1: #6dc354;
+  --animation-color1-g: 195;
+  --animation-color1-b: 84;
+  --animation-color1-r: 109;
+  --animation-color1-g: 195;
+  --animation-color1-b: 84;
+  --gradient-color1-starting-point-r: 109;
+  --gradient-color1-starting-point-g: 195;
+  --gradient-color1-starting-point-b: 84;
+  --gradient-color1-ending-point-r: 123;
+  --gradient-color1-ending-point-g: 201;
+  --gradient-color1-ending-point-b: 101;
+  --btn-background-color: #df4833;
+  --gradient-color-starting-point-r: 223;
+  --gradient-color-starting-point-g: 72;
+  --gradient-color-starting-point-b: 51;
+  --gradient-color-ending-point-r: 200;
+  --gradient-color-ending-point-g: 64;
+  --gradient-color-ending-point-b: 45;
+}
+
+html,
+body {
+  height: 100%;
+  color: var(--btn-color);
+  background-color: black;
+}
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  min-width: 120px;
+  min-height: 120px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: var(--btn-color);
+  background: var(--btn-background-color);
+  background: linear-gradient(
+    90deg,
+    rgba(
+        var(--gradient-color-starting-point-r),
+        var(--gradient-color-starting-point-g),
+        var(--gradient-color-starting-point-b),
+        1
+      )
+      0%,
+    rgba(
+        var(--gradient-color-ending-point-r),
+        var(--gradient-color-ending-point-g),
+        var(--gradient-color-ending-point-b),
+        1
+      )
+      100%
+  );
+  border: none;
+  border-radius: 50%;
+  box-shadow: 12px 12px 24px
+    rgba(
+      var(--gradient-color-ending-point-r),
+      var(--gradient-color-ending-point-g),
+      var(--gradient-color-ending-point-b),
+      0.64
+    );
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin: 24px;
+}
+.button-animated {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  min-width: 120px;
+  min-height: 120px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: var(--btn-color);
+  background: var(--btn-background-color);
+  background: linear-gradient(
+    90deg,
+    rgba(
+        var(--gradient-color1-starting-point-r),
+        var(--gradient-color1-starting-point-g),
+        var(--gradient-color1-starting-point-b),
+        1
+      )
+      0%,
+    rgba(
+        var(--gradient-color1-ending-point-r),
+        var(--gradient-color1-ending-point-g),
+        var(--gradient-color1-ending-point-b),
+        1
+      )
+      100%
+  );
+  border: none;
+  border-radius: 50%;
+  box-shadow: 12px 12px 24px
+    rgba(
+      var(--gradient-color1-ending-point-r),
+      var(--gradient-color1-ending-point-g),
+      var(--gradient-color1-ending-point-b),
+      0.64
+    );
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+
+.button-animated::before {
+  content: '';
+  border-radius: 50%;
+  min-width: calc(120px + 12px);
+  min-height: calc(120px + 12px);
+  border: 6px solid var(--animation-background-color1);
+  box-shadow: 0 0 60px rgba(var(--animation-color1-r), var(--animation-color1-g), var(--animation-color1-b), 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.button-animated:hover,
+.button-animated:focus {
+  transform: translateY(-6px);
+}
+
+.button-animated:hover::before,
+.button-animated:focus::before {
+  opacity: 1;
+}
+
+.button-animated::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 6px solid var(--animation-background-color1);
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.button-animated:hover::after,
+.button-animated:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+    height: 120px;
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background: none no-repeat center center fixed;
+  }
+}
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: none no-repeat center center fixed;
+  background-image: url('florianopolis.jpg');
+}
+
+#chamada {
+  transition: visibility 0s, opacity 0.5s linear;
+}
+#atendida {
+  transition: visibility 0s, opacity 1.5s linear;
+}
