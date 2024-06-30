@@ -32,8 +32,7 @@ function convertHistoryToToken() {
     let e = encodeInteger(history.evade)
     let code = y + r + e;
 
-    let encrypted = encryptString(code, "𝙰𝙻𝙼𝙴 ")
-    return encrypted;
+    return code;
 }
 
 function getHistory() {
@@ -97,28 +96,5 @@ function decodeString(encodedString) {
 
     return integer;
 }
-function encryptString(input, key) {
-    if (input.length !== 9 || key.length !== 9) {
-      throw new Error("Both input and key must be 9 characters long.");
-    }
-  
-    let encrypted = '';
-  
-    for (let i = 0; i < 9; i++) {
-      // Get the ASCII code of the input character and key character
-      let inputCharCode = input.charCodeAt(i);
-      let keyCharCode = key.charCodeAt(i);
-      
-      // Shift the input character by the key character's code
-      let encryptedCharCode = inputCharCode + keyCharCode;
-      
-      // Ensure it stays a single character by taking modulo 256
-      // This keeps it within the range of an extended ASCII table (0-255)
-      encryptedCharCode = encryptedCharCode % 256;
-      
-      // Convert back to character and append to the encrypted string
-      encrypted += String.fromCharCode(encryptedCharCode);
-    }
-  
-    return encrypted;
-  }
+
+
